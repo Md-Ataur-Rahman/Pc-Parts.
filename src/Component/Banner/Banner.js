@@ -1,12 +1,12 @@
 import React from "react";
+import banner from "../../Images/banner.jpg";
 
 const Banner = () => {
   return (
     <div
       class="hero min-h-screen"
       style={{
-        backgroundImage:
-          "url(" + "https://api.lorem.space/image/fashion?w=1000&h=800" + ")",
+        backgroundImage: `url(${banner})`,
       }}
     >
       <div class="hero-overlay bg-opacity-60"></div>
