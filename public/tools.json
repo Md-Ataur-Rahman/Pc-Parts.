@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Headphone",
+        "image": "https://i.ibb.co/hf60dTN/headphone.jpg",
+        "descriptions": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum dignissimos, explicabo tempore distinctio, esse obcaecati praesentium rerum fuga voluptate architecto dolorem modi maxime omnis voluptates? Eius sequi aspernatur ullam corporis!",
+        "orderQuantity": 50,
+        "quantity": 10000,
+        "perPrice": 120
+    },
+    {
+        "name": "Mouse",
+        "image": "https://i.ibb.co/hchGNtj/mouse.jpg",
+        "descriptions": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum dignissimos, explicabo tempore distinctio, esse obcaecati praesentium rerum fuga voluptate architecto dolorem modi maxime omnis voluptates? Eius sequi aspernatur ullam corporis!",
+        "orderQuantity": 70,
+        "quantity": 10000,
+        "perPrice": 90
+    },
+    {
+        "name": "Ram",
+        "image": "https://i.ibb.co/4gKcY71/ram.png",
+        "descriptions": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum dignissimos, explicabo tempore distinctio, esse obcaecati praesentium rerum fuga voluptate architecto dolorem modi maxime omnis voluptates? Eius sequi aspernatur ullam corporis!",
+        "orderQuantity": 100,
+        "quantity": 100000,
+        "perPrice": 200 
+    },
+    {
+        "name": "SSD",
+        "image": "https://i.ibb.co/HG73NHk/ssd.jpg",
+        "descriptions": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum dignissimos, explicabo tempore distinctio, esse obcaecati praesentium rerum fuga voluptate architecto dolorem modi maxime omnis voluptates? Eius sequi aspernatur ullam corporis!",
+        "orderQuantity": 35,
+        "quantity": 12000,
+        "perPrice": 300 
+    },
+    {
+        "name": "Cooler",
+        "image": "https://i.ibb.co/mFjbK4Z/cooler.png",
+        "descriptions": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum dignissimos, explicabo tempore distinctio, esse obcaecati praesentium rerum fuga voluptate architecto dolorem modi maxime omnis voluptates? Eius sequi aspernatur ullam corporis!",
+        "orderQuantity": 20,
+        "quantity": 10000,
+        "perPrice": 399
+    },
+    {
+        "name": "RGB Fan",
+        "image": "https://i.ibb.co/Mnb9kvB/fans.jpg",
+        "descriptions": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum dignissimos, explicabo tempore distinctio, esse obcaecati praesentium rerum fuga voluptate architecto dolorem modi maxime omnis voluptates? Eius sequi aspernatur ullam corporis!",
+        "orderQuantity": 120,
+        "quantity": 100000,
+        "perPrice": 13
+    }
+]
