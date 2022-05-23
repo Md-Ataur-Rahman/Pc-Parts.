@@ -1,12 +1,55 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 
 const SignUp = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  if (googleLoading || loading || updating) {
+    return <p>Loadding...</p>;
+  }
+
+  let signUpError;
+
+  if (error || googleError || updateError) {
+    signUpError = (
+      <p className="text-center text-red-500">
+        <small>
+          {error?.message || googleError?.message || updateError?.message}
+        </small>
+      </p>
+    );
+  }
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    console.log("Sign Up successfully");
+  };
   return (
     <div class="hero flex h-screen justify-center items-center bg-base-200">
       <div class="hero-content">
         <div class="card w-96 shadow-2xl bg-base-100">
-          <div class="card-body">
+          <form onSubmit={handleSubmit(onSubmit)} class="card-body">
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Name</span>
@@ -15,7 +58,20 @@ const SignUp = () => {
                 type="text"
                 placeholder="Name"
                 class="input input-bordered"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is Required",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.name?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.name.message}
+                  </span>
+                )}
+              </label>
             </div>
             <div class="form-control">
               <label class="label">
@@ -25,29 +81,77 @@ const SignUp = () => {
                 type="text"
                 placeholder="email"
                 class="input input-bordered"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Email is Required",
+                  },
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Provide a valid Email",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+              </label>
             </div>
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
                 class="input input-bordered"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is Required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Must be 6 characters or longer",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.password?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+              </label>
             </div>
+            {signUpError}
             <div class="form-control mt-6">
-              <button class="btn btn-primary">Sign Up</button>
+              <input class="btn btn-primary" type="submit" value="Sign Up" />
             </div>
             <div class="divider">OR</div>
-            <button class="btn btn-outline btn-primary">
+            <button
+              onClick={() => signInWithGoogle()}
+              class="btn btn-outline btn-primary"
+            >
               Continue with Google
             </button>
             <p className="text-center">
               Already have an account? <Link to="/login">Login</Link>
             </p>
-          </div>
+          </form>
         </div>
       </div>
     </div>
