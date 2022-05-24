@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Tool = ({ tool }) => {
-  const { name, image, descriptions, orderQuantity, quantity, perPrice } = tool;
+  const { _id, name, image, descriptions, orderQuantity, quantity, perPrice } =
+    tool;
   return (
     <div class="card lg:max-w-max bg-base-100 shadow-xl">
       <figure>
@@ -16,7 +18,9 @@ const Tool = ({ tool }) => {
           <li>Per Price: {perPrice}</li>
         </ul>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
+          <Link to={`/purchase/${_id}`}>
+            <button class="btn btn-primary">Buy Now</button>
+          </Link>
         </div>
       </div>
     </div>
