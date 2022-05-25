@@ -3,6 +3,7 @@ import AddReview from "./Component/Dashboard/AddReview";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import MyOrder from "./Component/Dashboard/MyOrder";
 import MyProfile from "./Component/Dashboard/MyProfile";
+import Payment from "./Component/Dashboard/Payment";
 import Footer from "./Component/Footer/Footer";
 import Home from "./Component/Home/Home";
 import Login from "./Component/Login/Login";
@@ -39,6 +40,7 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="myorders" element={<MyOrder></MyOrder>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
         </Route>
       </Routes>
       <Footer />
