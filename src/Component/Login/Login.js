@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -19,10 +20,19 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  const [token] = useToken(user || googleUser);
+  console.log(token);
+
   let signInError;
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   if (googleLoading || loading) {
     return <p>Loadding...</p>;
@@ -40,7 +50,6 @@ const Login = () => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
     console.log("Sign Up successfully");
-    navigate(from, { replace: true });
   };
   return (
     <div class="hero flex h-screen justify-center items-center bg-base-200">
