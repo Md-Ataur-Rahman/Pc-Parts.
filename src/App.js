@@ -11,6 +11,7 @@ import Navbar from "./Component/Navbar/Navbar";
 import PurchaseItem from "./Component/PurchaseItem/PurchaseItem";
 import RequireAuth from "./Component/RequireAuth/RequireAuth";
 import SignUp from "./Component/SignUp/SignUp";
+import NotFound from "./Component/NotFound/NotFound";
 
 function App() {
   return (
@@ -29,22 +30,30 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route
-          path="dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard />
-            </RequireAuth>
-          }
-        >
+        <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<MyProfile></MyProfile>}></Route>
-          <Route path="myorders" element={<MyOrder></MyOrder>}></Route>
-          <Route path="addreview" element={<AddReview></AddReview>}></Route>
+          <Route
+            path="myorders"
+            element={
+              <RequireAuth>
+                <MyOrder></MyOrder>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="addreview"
+            element={
+              <RequireAuth>
+                <AddReview></AddReview>
+              </RequireAuth>
+            }
+          ></Route>
           <Route
             path="payment/:paymentId"
             element={<Payment></Payment>}
           ></Route>
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
     </div>

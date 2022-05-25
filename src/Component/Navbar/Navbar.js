@@ -60,10 +60,12 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl">Pc Parts.</a>
+        <Link to="/" class="btn btn-ghost normal-case text-xl">
+          Pc Parts.
+        </Link>
       </div>
       <div class="navbar-end hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">{navLinks}</ul>
+        <ul class="menu menu-horizontal p-0 gap-2">{navLinks}</ul>
       </div>
     </div>
   );
