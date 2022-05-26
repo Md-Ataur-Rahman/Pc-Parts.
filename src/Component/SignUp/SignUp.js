@@ -8,6 +8,7 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import useToken from "../../hooks/useToken";
+import Loading from "../Loading/Loading";
 
 const SignUp = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -29,7 +30,7 @@ const SignUp = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   if (googleLoading || loading || updating) {
-    return <p>Loadding...</p>;
+    return <Loading></Loading>;
   }
 
   let signUpError;

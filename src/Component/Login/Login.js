@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -35,7 +36,7 @@ const Login = () => {
   }, [token, from, navigate]);
 
   if (googleLoading || loading) {
-    return <p>Loadding...</p>;
+    return <Loading></Loading>;
   }
 
   if (error || googleError) {

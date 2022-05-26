@@ -53,6 +53,7 @@ const PurchaseItem = () => {
     const orderInfo = {
       name: user?.displayName,
       email: user?.email,
+      orderName: purchaseItem?.name,
       orderQuantity: purchaseItem?.orderQuantity,
       quantity: purchaseItem?.quantity,
       perPrice: purchaseItem?.perPrice,
