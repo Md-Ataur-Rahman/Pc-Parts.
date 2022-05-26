@@ -12,6 +12,8 @@ import PurchaseItem from "./Component/PurchaseItem/PurchaseItem";
 import RequireAuth from "./Component/RequireAuth/RequireAuth";
 import SignUp from "./Component/SignUp/SignUp";
 import NotFound from "./Component/NotFound/NotFound";
+import AddProduct from "./Component/Dashboard/AddProduct";
+import MakeAdmin from "./Component/Dashboard/MakeAdmin";
 
 function App() {
   return (
@@ -45,6 +47,22 @@ function App() {
             element={
               <RequireAuth>
                 <AddReview></AddReview>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="makeadmin"
+            element={
+              <RequireAuth>
+                <MakeAdmin></MakeAdmin>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="addproduct"
+            element={
+              <RequireAuth>
+                <AddProduct></AddProduct>
               </RequireAuth>
             }
           ></Route>
