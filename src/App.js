@@ -14,6 +14,7 @@ import SignUp from "./Component/SignUp/SignUp";
 import NotFound from "./Component/NotFound/NotFound";
 import AddProduct from "./Component/Dashboard/AddProduct";
 import MakeAdmin from "./Component/Dashboard/MakeAdmin";
+import ManageProducts from "./Component/Dashboard/ManageProducts";
 
 function App() {
   return (
@@ -63,6 +64,14 @@ function App() {
             element={
               <RequireAuth>
                 <AddProduct></AddProduct>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="manageproducts"
+            element={
+              <RequireAuth>
+                <ManageProducts></ManageProducts>
               </RequireAuth>
             }
           ></Route>

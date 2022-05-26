@@ -11,9 +11,7 @@ const AddProduct = () => {
     reset,
   } = useForm();
 
-  const { data: products, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/services").then((res) => res.json())
-  );
+  
 
   const imageStorageKey = "c7ad20aec42c81da7add47a072308b4a";
 
@@ -62,9 +60,9 @@ const AddProduct = () => {
       });
   };
 
-  if (isLoading) {
-    return <p>Loading</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading</p>;
+  // }
 
   return (
     <div className="flex flex-col items-center justify-center md:w-9/12">
