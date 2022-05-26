@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
@@ -8,8 +8,13 @@ const MyProfile = () => {
   const [location, setLocation] = useState("");
   const [number, setNumber] = useState("");
   const [profileLink, setProfileLink] = useState("");
+  const [userProfile, setUserProfile] = useState({});
 
   const handlerEducationChange = (e) => {
+    // setState(prevState => {
+    //   ...prevState,
+    //   [e.target.name]: e.target.value,
+    // });
     setEducation(e.target.value);
   };
   const handlerLocationChange = (e) => {
@@ -21,10 +26,39 @@ const MyProfile = () => {
   const handlerLinkdinLinkChange = (e) => {
     setProfileLink(e.target.value);
   };
+  const url = `http://localhost:5000/myprofile/${user?.email}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const profile = {
+      name: user.displayName,
+      email: user.email,
+      education,
+      location,
+      number,
+      profileLink,
+    };
+    console.log(profile);
+
+    fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(profile),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setUserProfile(data));
+  }, [user, education, location, number, profileLink]);
+
   return (
     <div classNmae="hero h-screen">
       <div classNmae="hero-content">
@@ -48,7 +82,9 @@ const MyProfile = () => {
             required
           />
           <label class="label mt-4">
-            <span class="label-text">Education: {education}</span>
+            <span class="label-text">
+              Education: {education || userProfile?.education}
+            </span>
           </label>
           <input
             type="text"
@@ -57,7 +93,9 @@ const MyProfile = () => {
             onChange={handlerEducationChange}
           />
           <label class="label mt-4">
-            <span class="label-text">Location: {location}</span>
+            <span class="label-text">
+              Location: {location || userProfile?.location}
+            </span>
           </label>
           <input
             type="text"
@@ -66,7 +104,9 @@ const MyProfile = () => {
             onChange={handlerLocationChange}
           />
           <label class="label mt-4">
-            <span class="label-text">Phone Number: {number}</span>
+            <span class="label-text">
+              Phone Number: {number || userProfile?.number}
+            </span>
           </label>
           <input
             type="text"
@@ -75,7 +115,9 @@ const MyProfile = () => {
             onChange={handlerNumberChange}
           />
           <label class="label mt-4">
-            <span class="label-text">LinkDin profile link: {profileLink}</span>
+            <span class="label-text">
+              LinkDin profile link: {profileLink || userProfile?.profileLink}
+            </span>
           </label>
           <input
             type="text"
