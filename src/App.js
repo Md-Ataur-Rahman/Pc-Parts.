@@ -5,6 +5,8 @@ import MyOrder from "./Component/Dashboard/MyOrder";
 import MyProfile from "./Component/Dashboard/MyProfile";
 import Payment from "./Component/Dashboard/Payment";
 import Footer from "./Component/Footer/Footer";
+import MyPortfolio from "./Component/MyPortfolio/MyPortfolio";
+import Blog from "./Component/Blog/Blog";
 import Home from "./Component/Home/Home";
 import Login from "./Component/Login/Login";
 import Navbar from "./Component/Navbar/Navbar";
@@ -15,7 +17,8 @@ import NotFound from "./Component/NotFound/NotFound";
 import AddProduct from "./Component/Dashboard/AddProduct";
 import MakeAdmin from "./Component/Dashboard/MakeAdmin";
 import ManageProducts from "./Component/Dashboard/ManageProducts";
-
+import ManageAllOrders from "./Component/Dashboard/ManageAllOrders";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div>
@@ -25,6 +28,8 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/myportfolio" element={<MyPortfolio />}></Route>
+        <Route path="/blog" element={<Blog />}></Route>
         <Route
           path="/purchase/:id"
           element={
@@ -72,6 +77,14 @@ function App() {
             element={
               <RequireAuth>
                 <ManageProducts></ManageProducts>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="manageallorders"
+            element={
+              <RequireAuth>
+                <ManageAllOrders></ManageAllOrders>
               </RequireAuth>
             }
           ></Route>

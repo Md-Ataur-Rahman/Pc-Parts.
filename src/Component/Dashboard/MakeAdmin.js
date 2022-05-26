@@ -8,12 +8,17 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/users").then((res) => res.json())
+    fetch("http://localhost:5000/users", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  //   console.log(users);
+  console.log(users);
   return (
     <div>
       <div class="overflow-x-auto">

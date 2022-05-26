@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { ToastContainer, toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const PurchaseItem = () => {
   const [user] = useAuthState(auth);
   const [purchaseItem, setPurchaseItem] = useState({});
+  const [stateOrderQuantity, setStateOrderQuantity] = useState(
+    purchaseItem?.orderQuantity
+  );
   const [addOrderQuantity, setAddOrderQuantity] = useState();
   const [address, setAddress] = useState();
   const [number, setNumber] = useState();
   const { id } = useParams();
+  console.log(stateOrderQuantity);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
+    fetch(`http://localhost:5000/purchase/${id}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setPurchaseItem(data));
+      .then((data) => {
+        setPurchaseItem(data);
+        setStateOrderQuantity(data.orderQuantity);
+      });
   }, [id]);
   console.log(purchaseItem);
 
@@ -32,34 +45,32 @@ const PurchaseItem = () => {
 
   const handlerOrderQuantity = (e) => {
     e.preventDefault();
-    //   const increaseAddQuantity =
-    //     parseInt(addOrderQuantity) + purchaseItem?.orderQuantity;
-    //   if (purchaseItem?.quantity >= increaseAddQuantity) {
-    //     purchaseItem.orderQuantity = increaseAddQuantity;
-    //     setAddOrderQuantity(increaseAddQuantity);
-    //     console.log(increaseAddQuantity);
-    //   }
+    const increaseAddQuantity =
+      parseInt(addOrderQuantity) + purchaseItem?.orderQuantity;
+    if (purchaseItem?.quantity >= increaseAddQuantity) {
+      purchaseItem.orderQuantity = increaseAddQuantity;
+      setAddOrderQuantity(increaseAddQuantity);
+      console.log(increaseAddQuantity);
+    } else {
+      toast.error("Don't available");
+    }
   };
 
   const handlerDecrease = () => {
-    let decreaseOrderQuantity;
-    if (50 < parseInt(decreaseOrderQuantity)) {
-      decreaseOrderQuantity = purchaseItem?.orderQuantity - 1;
+    const minOrderQuantity = purchaseItem?.orderQuantity;
+    if (stateOrderQuantity < minOrderQuantity) {
+      const decreaseOrderQuantity = purchaseItem?.orderQuantity - 1;
+      purchaseItem.orderQuantity = decreaseOrderQuantity;
+      setAddOrderQuantity(decreaseOrderQuantity);
+      console.log(decreaseOrderQuantity);
+    } else {
+      toast.error("Min order Quantity require");
     }
-    // if (purchaseItem?.orderQuantity > parseInt(decreaseOrderQuantity)) {
-    //   console.log(purchaseItem?.orderQuantity);
-    //   console.log(parseInt(decreaseOrderQuantity));
-    //   console.log(true);
-    // } else {
-    //   purchaseItem.orderQuantity = decreaseOrderQuantity;
-    //   setAddOrderQuantity(decreaseOrderQuantity);
-    //   console.log(decreaseOrderQuantity);
-    // }
-    console.log(decreaseOrderQuantity);
   };
 
   const handlerOrderInfo = (e) => {
     e.preventDefault();
+    const amount = purchaseItem?.orderQuantity * purchaseItem?.perPrice;
     const orderInfo = {
       name: user?.displayName,
       email: user?.email,
@@ -69,6 +80,7 @@ const PurchaseItem = () => {
       perPrice: purchaseItem?.perPrice,
       address,
       number,
+      amount: amount,
     };
     // console.log(orderInfo);
 
@@ -80,7 +92,11 @@ const PurchaseItem = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("order completed");
+        }
+      });
   };
 
   return (
@@ -190,6 +206,7 @@ const PurchaseItem = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
