@@ -11,22 +11,17 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const { paymentId } = useParams();
-  const [paymentOrder, setPaymentOrder] = useState({});
   console.log(paymentId);
 
-  fetch(`http://localhost:5000/paymentorder/${paymentId}`)
-    .then((res) => res.json())
-    .then((data) => setPaymentOrder(data));
-
-  // const { data: paymentOrder, isLoading } = useQuery(
-  //   ["paymentorder", paymentId],
-  //   () => fetch(url).then((res) => res.json())
-  // );
-  // if (isLoading) {
-  //   return <p>Loading</p>;
-  // }
-  // paymentOrder={paymentOrder}
-  // console.log(paymentOrder);
+  const url = `http://localhost:5000/paymentorder/${paymentId}`;
+  const { data: paymentOrder, isLoading } = useQuery(
+    ["paymentorder", paymentId],
+    () => fetch(url).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
+  
   return (
     <div className="flex flex-col items-center justify-center">
       <div class="card w-10/12 bg-base-100 shadow-xl my-12">

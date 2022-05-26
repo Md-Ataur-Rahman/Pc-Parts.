@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 const CheckoutForm = ({ paymentOrder }) => {
-  const { _id, name, email } = paymentOrder;
+  const { _id, name, email, perPrice } = paymentOrder;
   console.log(paymentOrder, "payorder");
   const stripe = useStripe();
   const elements = useElements();
@@ -18,15 +18,17 @@ const CheckoutForm = ({ paymentOrder }) => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(paymentOrder),
+      // body: JSON.stringify(paymentOrder),
+      body: JSON.stringify({ perPrice }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
           setClientSecret(data.clientSecret);
+          console.log(data.clientSecret);
         }
       });
-  }, [paymentOrder]);
+  }, [perPrice]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -55,6 +57,7 @@ const CheckoutForm = ({ paymentOrder }) => {
     }
 
     setCardError(error?.message || "");
+    setSuccess("");
     setProcessing(true);
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
@@ -116,6 +119,7 @@ const CheckoutForm = ({ paymentOrder }) => {
             },
           }}
         />
+        {/* disabled={!stripe || !clientSecret || success} */}
         <button
           className="btn btn-success btn-sm mt-4"
           type="submit"

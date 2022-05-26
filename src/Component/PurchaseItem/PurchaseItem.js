@@ -32,19 +32,29 @@ const PurchaseItem = () => {
 
   const handlerOrderQuantity = (e) => {
     e.preventDefault();
-    const increaseAddQuantity =
-      parseInt(addOrderQuantity) + purchaseItem?.orderQuantity;
-    if (purchaseItem?.quantity >= increaseAddQuantity) {
-      purchaseItem.orderQuantity = increaseAddQuantity;
-      setAddOrderQuantity(increaseAddQuantity);
-      console.log(increaseAddQuantity);
-    }
+    //   const increaseAddQuantity =
+    //     parseInt(addOrderQuantity) + purchaseItem?.orderQuantity;
+    //   if (purchaseItem?.quantity >= increaseAddQuantity) {
+    //     purchaseItem.orderQuantity = increaseAddQuantity;
+    //     setAddOrderQuantity(increaseAddQuantity);
+    //     console.log(increaseAddQuantity);
+    //   }
   };
 
   const handlerDecrease = () => {
-    const decreaseOrderQuantity = purchaseItem?.orderQuantity - 1;
-    purchaseItem.orderQuantity = decreaseOrderQuantity;
-    setAddOrderQuantity(decreaseOrderQuantity);
+    let decreaseOrderQuantity;
+    if (50 < parseInt(decreaseOrderQuantity)) {
+      decreaseOrderQuantity = purchaseItem?.orderQuantity - 1;
+    }
+    // if (purchaseItem?.orderQuantity > parseInt(decreaseOrderQuantity)) {
+    //   console.log(purchaseItem?.orderQuantity);
+    //   console.log(parseInt(decreaseOrderQuantity));
+    //   console.log(true);
+    // } else {
+    //   purchaseItem.orderQuantity = decreaseOrderQuantity;
+    //   setAddOrderQuantity(decreaseOrderQuantity);
+    //   console.log(decreaseOrderQuantity);
+    // }
     console.log(decreaseOrderQuantity);
   };
 
