@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
   const [buttonText, setButtonText] = useState("pending");
-  const [stateTransactionId, setStateTransactionId] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/allorders", {
@@ -16,12 +15,8 @@ const ManageAllOrders = () => {
       .then((data) => setOrders(data));
   }, [orders]);
 
-  const changeText = (transactionId, text) => {
-    //     for (let i = 0; i < orders.length; i++) {
-    //       if (orders[i].transactionId === transactionId) {
-    //         setStateTransactionId(orders[i].transactionId);
-    //       }
-    //     }
+  const changeText = (text) => {
+    setButtonText("shipped");
   };
   return (
     <div class="overflow-x-auto">
@@ -35,7 +30,6 @@ const ManageAllOrders = () => {
             <th>OrderQuantity</th>
             <th>Per Price</th>
             <th>Total</th>
-            <th>Payment Status</th>
           </tr>
         </thead>
         <tbody>
@@ -47,16 +41,20 @@ const ManageAllOrders = () => {
               <td>{order.orderName}</td>
               <td>{order.orderQuantity}</td>
               <td>{order.perPrice}</td>
-              <td>{order.perPrice * order.orderQuantity}</td>
               <td>
-                {/* {order.paid(
+                {order.paid && (
                   <button
-                    onClick={() => changeText(order.transactionId, "shipped")}
+                    className="btn btn-xs btn-success"
+                    onClick={() => changeText("shipped")}
                   >
                     {buttonText}
                   </button>
                 )}
-                {!order.paid && <button>unpaid</button>} */}
+                {!order.paid && (
+                  <button className="btn btn-xs btn-outline btn-success">
+                    unpaid
+                  </button>
+                )}
               </td>
             </tr>
           ))}

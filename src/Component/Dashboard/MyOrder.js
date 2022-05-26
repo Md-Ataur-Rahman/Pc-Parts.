@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import { ToastContainer, toast } from "react-toastify";
 
 const MyOrder = () => {
   const [user] = useAuthState(auth);
   const [myOrders, setMyOrders] = useState([]);
-  const [isOrder, setIsOrder] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/myorders?email=${user.email}`, {
@@ -17,19 +17,21 @@ const MyOrder = () => {
     })
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
-  }, [myOrders, isOrder]);
+  }, [myOrders]);
 
   const orderCancel = (id) => {
-    if (isOrder) {
-      fetch(`http://localhost:5000/orders/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    }
+    fetch(`http://localhost:5000/orders/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          toast.success("Delete Order");
+        }
+      });
     console.log(id);
   };
   console.log(myOrders);
@@ -68,6 +70,7 @@ const MyOrder = () => {
                       <label
                         for="my-modal-6"
                         className="btn btn-xs btn-error mx-4"
+                        onClick={() => orderCancel(order._id)}
                       >
                         cancel
                       </label>
@@ -91,10 +94,8 @@ const MyOrder = () => {
             ))}
           </tbody>
         </table>
+        <ToastContainer />
       </div>
-      <label for="my-modal-6" class="btn modal-button">
-        open modal
-      </label>
     </>
   );
 };

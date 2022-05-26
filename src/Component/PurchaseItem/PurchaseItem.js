@@ -70,7 +70,6 @@ const PurchaseItem = () => {
 
   const handlerOrderInfo = (e) => {
     e.preventDefault();
-    const amount = purchaseItem?.orderQuantity * purchaseItem?.perPrice;
     const orderInfo = {
       name: user?.displayName,
       email: user?.email,
@@ -80,9 +79,7 @@ const PurchaseItem = () => {
       perPrice: purchaseItem?.perPrice,
       address,
       number,
-      amount: amount,
     };
-    // console.log(orderInfo);
 
     fetch("http://localhost:5000/order", {
       method: "POST",
