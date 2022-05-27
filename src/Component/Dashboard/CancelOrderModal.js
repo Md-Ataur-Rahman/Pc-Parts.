@@ -3,21 +3,29 @@ import React from "react";
 const CancelOrderModal = ({ onDialog }) => {
   return (
     <>
-      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <label
-            for="my-modal-3"
-            class="btn btn-sm btn-circle absolute right-2 top-2"
+            htmlFor="my-modal-3"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <h3 class="text-lg font-bold">Are You want to cancel it ?!</h3>
-          <div class="modal-action">
-            <label for="my-modal-3" class="btn" onClick={() => onDialog(true)}>
+          <h3 className="text-lg font-bold">Are You want to cancel it ?!</h3>
+          <div className="modal-action">
+            <label
+              htmlFor="my-modal-3"
+              className="btn"
+              onClick={() => onDialog(true)}
+            >
               Yay!
             </label>
-            <label for="my-modal-3" class="btn" onClick={() => onDialog(false)}>
+            <label
+              htmlFor="my-modal-3"
+              className="btn"
+              onClick={() => onDialog(false)}
+            >
               No!
             </label>
           </div>

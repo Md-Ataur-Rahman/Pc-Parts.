@@ -50,8 +50,8 @@ const MyOrder = () => {
   console.log(myOrders);
   return (
     <>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
@@ -81,7 +81,7 @@ const MyOrder = () => {
                         <button className="btn btn-xs btn-success">pay</button>
                       </Link>
                       <label
-                        for="my-modal-3"
+                        htmlFor="my-modal-3"
                         className="btn btn-xs btn-error mx-4"
                         onClick={() => orderCancel(order._id)}
                       >

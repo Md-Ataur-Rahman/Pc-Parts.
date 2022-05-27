@@ -2,10 +2,10 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="card flex-shrink-0 max-w-sm md:w-2/4 shadow-2xl bg-base-100">
-          <div class="card-body">
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="card flex-shrink-0 max-w-sm md:w-2/4 shadow-2xl bg-base-100">
+          <div className="card-body">
             <p className="text-4xl text-center text-bold">
               How will you improve the performance of a React Application?
             </p>
@@ -18,7 +18,7 @@ const Blog = () => {
               can improve rendering performance.
             </p>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             <p className="text-4xl text-center text-bold">
               What are the different ways to manage a state in a React
               application?
@@ -33,7 +33,7 @@ const Blog = () => {
               and query parameters
             </p>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             <p className="text-4xl text-center text-bold">
               How does prototypical inheritance work
             </p>
@@ -46,7 +46,7 @@ const Blog = () => {
               access করতে পারে |
             </p>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             <p className="text-4xl text-center text-bold">
               Why you do not set the state directly in React. For example, if
               you have const [products, setProducts] = useState([]). Why you do
@@ -59,7 +59,7 @@ const Blog = () => {
               দিয়ে changed করতে হবে আর সেটা setProducts.. .
             </p>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             <p className="text-4xl text-center text-bold">
               What is a unit test? Why should write unit tests?
             </p>

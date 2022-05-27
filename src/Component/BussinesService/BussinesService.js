@@ -5,17 +5,17 @@ import BussinesServiceImage from "../../Images/bussiness_service.jpg";
 
 const BussinesService = () => {
   return (
-    <div class="hero min-h-screen bg-base-300">
-      <div class="hero-content mx-auto flex-col lg:flex-row">
+    <div className="hero min-h-screen bg-base-300">
+      <div className="hero-content mx-auto flex-col lg:flex-row">
         <img
           style={{ width: "260px", height: "350px" }}
           src={BussinesServiceImage}
-          class="max-w-sm rounded-lg shadow-2xl flex-1"
+          className="max-w-sm rounded-lg shadow-2xl flex-1"
           alt=""
         />
         <div className="flex-2 lg:mx-16">
-          <h1 class="text-5xl font-bold">Bussiness Services</h1>
-          <p class="py-6">
+          <h1 className="text-5xl font-bold">Bussiness Services</h1>
+          <p className="py-6">
             Business services are a recognisable subset of economic services,
             and share their characteristics. The essential difference is that
             businesses are concerned about the building of service systems in
@@ -39,7 +39,7 @@ const BussinesService = () => {
               <span className="font-thin">Projects</span>
             </li>
           </ul>
-          <button class="btn btn-primary-outline">Get Started</button>
+          <button className="btn btn-primary-outline">Get Started</button>
         </div>
       </div>
     </div>

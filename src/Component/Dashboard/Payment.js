@@ -24,15 +24,15 @@ const Payment = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div class="card w-10/12 bg-base-100 shadow-xl my-12">
-        <div class="card-body">
+      <div className="card w-10/12 bg-base-100 shadow-xl my-12">
+        <div className="card-body">
           <p className="text-success font-bold">Name: {paymentOrder.name}</p>
-          <h2 class="card-title">{paymentOrder.email}</h2>
-          <h2 class="card-title">{paymentOrder.perPrice}</h2>
+          <h2 className="card-title">{paymentOrder.email}</h2>
+          <h2 className="card-title">{paymentOrder.perPrice}</h2>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-10/12 shadow-2xl bg-base-100">
-        <div class="card-body">
+      <div className="card flex-shrink-0 w-10/12 shadow-2xl bg-base-100">
+        <div className="card-body">
           <Elements stripe={stripePromise}>
             <CheckoutForm paymentOrder={paymentOrder} />
           </Elements>

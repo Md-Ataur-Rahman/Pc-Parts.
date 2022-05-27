@@ -3,8 +3,8 @@ import "./Loading.css";
 const Loading = () => {
   return (
     <div>
-      <div class="spinner"></div>
-      <h3 class="textLaoding">LOADING...</h3>
+      <div className="spinner"></div>
+      <h3 className="textLaoding">LOADING...</h3>
     </div>
   );
 };

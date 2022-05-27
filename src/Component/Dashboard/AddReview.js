@@ -48,37 +48,37 @@ const AddReview = () => {
   };
 
   return (
-    <div class="hero flex h-screen justify-center items-center">
-      <div class="hero-content">
-        <div class="card max-w-sm md:w-96 shadow-2xl bg-base-100">
-          <form onSubmit={handleSubmit} class="card-body">
-            <label class="label mt-4">
-              <span class="label-text">Name</span>
+    <div className="hero flex h-screen justify-center items-center">
+      <div className="hero-content">
+        <div className="card max-w-sm md:w-96 shadow-2xl bg-base-100">
+          <form onSubmit={handleSubmit} className="card-body">
+            <label className="label mt-4">
+              <span className="label-text">Name</span>
             </label>
             <input
               type="text"
-              class="input input-bordered w-full max"
+              className="input input-bordered w-full max"
               value={user?.displayName}
               required
             />
-            <label class="label mt-4">
-              <span class="label-text">Review Text</span>
+            <label className="label mt-4">
+              <span className="label-text">Review Text</span>
             </label>
             <textarea
               type="text"
-              class="input input-bordered w-full max"
+              className="input input-bordered w-full max"
               placeholder="Review Text"
               required
               cols="30"
               rows="10"
               onChange={handlerReviewChange}
             ></textarea>
-            <label class="label mt-4">
-              <span class="label-text">Rating</span>
+            <label className="label mt-4">
+              <span className="label-text">Rating</span>
             </label>
             <input
               type="number"
-              class="input input-bordered w-full max"
+              className="input input-bordered w-full max"
               placeholder="min 1 & max 5"
               min="1"
               max="5"

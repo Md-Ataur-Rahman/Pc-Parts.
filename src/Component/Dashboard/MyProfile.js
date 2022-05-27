@@ -60,68 +60,68 @@ const MyProfile = () => {
   }, [user, education, location, number, profileLink]);
 
   return (
-    <div classNmae="hero h-screen">
-      <div classNmae="hero-content">
-        <form onSubmit={handleSubmit} class="card-body">
-          <label class="label mt-4">
-            <span class="label-text">Name {user?.displayName}</span>
+    <div className="hero h-screen">
+      <div className="hero-content">
+        <form onSubmit={handleSubmit} className="card-body">
+          <label className="label mt-4">
+            <span className="label-text">Name {user?.displayName}</span>
           </label>
           <input
             type="text"
-            class="input input-bordered w-full max"
+            className="input input-bordered w-full max"
             value={user?.displayName}
             required
           />
-          <label class="label mt-4">
-            <span class="label-text">Email: {user?.email}</span>
+          <label className="label mt-4">
+            <span className="label-text">Email: {user?.email}</span>
           </label>
           <input
             type="text"
-            class="input input-bordered w-full max"
+            className="input input-bordered w-full max"
             value={user?.email}
             required
           />
-          <label class="label mt-4">
-            <span class="label-text">
+          <label className="label mt-4">
+            <span className="label-text">
               Education: {education || userProfile?.education}
             </span>
           </label>
           <input
             type="text"
-            class="input input-bordered w-full max"
+            className="input input-bordered w-full max"
             placeholder="education"
             onChange={handlerEducationChange}
           />
-          <label class="label mt-4">
-            <span class="label-text">
+          <label className="label mt-4">
+            <span className="label-text">
               Location: {location || userProfile?.location}
             </span>
           </label>
           <input
             type="text"
-            class="input input-bordered w-full max"
+            className="input input-bordered w-full max"
             placeholder="Location"
             onChange={handlerLocationChange}
           />
-          <label class="label mt-4">
-            <span class="label-text">
+          <label className="label mt-4">
+            <span className="label-text">
               Phone Number: {number || userProfile?.number}
             </span>
           </label>
           <input
             type="text"
-            class="input input-bordered w-full max"
+            className="input input-bordered w-full max"
             placeholder="Phone Number"
             onChange={handlerNumberChange}
           />
-          <label class="label mt-4">
-            <span class="label-text">
+          <label className="label mt-4">
+            <span className="label-text">
               LinkDin profile link: {profileLink || userProfile?.profileLink}
             </span>
           </label>
           <input
             type="text"
-            class="input input-bordered w-full max"
+            className="input input-bordered w-full max"
             placeholder="Linkdin profile Link"
             onChange={handlerLinkdinLinkChange}
           />

@@ -56,18 +56,18 @@ const SignUp = () => {
     console.log("Sign Up successfully");
   };
   return (
-    <div class="hero flex h-screen justify-center items-center bg-base-200">
-      <div class="hero-content">
-        <div class="card w-96 shadow-2xl bg-base-100">
-          <form onSubmit={handleSubmit(onSubmit)} class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Name</span>
+    <div className="hero flex h-screen justify-center items-center bg-base-200">
+      <div className="hero-content">
+        <div className="card w-96 shadow-2xl bg-base-100">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
               </label>
               <input
                 type="text"
                 placeholder="Name"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("name", {
                   required: {
                     value: true,
@@ -83,14 +83,14 @@ const SignUp = () => {
                 )}
               </label>
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="text"
                 placeholder="email"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("email", {
                   required: {
                     value: true,
@@ -115,14 +115,14 @@ const SignUp = () => {
                 )}
               </label>
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="password"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("password", {
                   required: {
                     value: true,
@@ -148,13 +148,17 @@ const SignUp = () => {
               </label>
             </div>
             {signUpError}
-            <div class="form-control mt-6">
-              <input class="btn btn-primary" type="submit" value="Sign Up" />
+            <div className="form-control mt-6">
+              <input
+                className="btn btn-primary"
+                type="submit"
+                value="Sign Up"
+              />
             </div>
-            <div class="divider">OR</div>
+            <div className="divider">OR</div>
             <button
               onClick={() => signInWithGoogle()}
-              class="btn btn-outline btn-primary"
+              className="btn btn-outline btn-primary"
             >
               Continue with Google
             </button>

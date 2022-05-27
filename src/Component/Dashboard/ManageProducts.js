@@ -46,22 +46,25 @@ const ManageProducts = () => {
         <h1 className="py-9 text-center text-5xl font-bold">Manage Products</h1>
         <div className="w-5/6 mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {products.map((pd) => (
-            <div key={pd._id} class="card lg:max-w-max bg-base-100 shadow-xl">
+            <div
+              key={pd._id}
+              className="card lg:max-w-max bg-base-100 shadow-xl"
+            >
               <figure>
                 <img className="h-72" src={pd.image} alt="" />
               </figure>
-              <div class="card-body">
-                <h2 class="card-title">{pd.name}</h2>
+              <div className="card-body">
+                <h2 className="card-title">{pd.name}</h2>
                 <p>{pd.descriptions}</p>
                 <ul>
                   <li>Order Quantity: {pd.orderQuantity}</li>
                   <li className="py-2">Quantity: {pd.quantity}</li>
                   <li>Per Price: {pd.perPrice}</li>
                 </ul>
-                <div class="card-actions justify-end">
+                <div className="card-actions justify-end">
                   <label
-                    for="manageOrder"
-                    class="btn btn-error"
+                    htmlFor="manageOrder"
+                    className="btn btn-error"
                     onClick={() => handlerDelete(pd._id)}
                   >
                     Delete

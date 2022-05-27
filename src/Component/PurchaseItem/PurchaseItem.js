@@ -97,100 +97,100 @@ const PurchaseItem = () => {
   };
 
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="text-center lg:text-left">
-          <div class="card-body">
-            <div class="card w-96 bg-base-100 shadow-xl p-10 text-center">
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left">
+          <div className="card-body">
+            <div className="card w-96 bg-base-100 shadow-xl p-10 text-center">
               <form onSubmit={handlerOrderQuantity}>
                 <input
                   type="number"
                   placeholder="Update oerder Quantity"
-                  class="input input-bordered w-full max-w-xs my-4"
+                  className="input input-bordered w-full max-w-xs my-4"
                   onBlur={handlerOrderQuantityBlur}
                   required
                 />
                 <input
-                  class="btn btn-active btn-accent block w-full"
+                  className="btn btn-active btn-accent block w-full"
                   type="submit"
                   value="Increase Order"
                 />
               </form>
               <button
                 onClick={handlerDecrease}
-                class="btn btn-active btn-secondary mt-5"
+                className="btn btn-active btn-secondary mt-5"
               >
                 Decrease
               </button>
             </div>
           </div>
         </div>
-        <div class="card-body">
-          <div class="card w-[500px] bg-base-100 shadow-xl p-5">
-            <form class="card-body" onSubmit={handlerOrderInfo}>
-              <h2 class="card-title">Name: {purchaseItem?.name}</h2>
-              <label class="label mt-4">
-                <span class="label-text">Order Quantity</span>
+        <div className="card-body">
+          <div className="card w-[500px] bg-base-100 shadow-xl p-5">
+            <form className="card-body" onSubmit={handlerOrderInfo}>
+              <h2 className="card-title">Name: {purchaseItem?.name}</h2>
+              <label className="label mt-4">
+                <span className="label-text">Order Quantity</span>
               </label>
               <input
                 type="number"
-                class="input input-bordered w-full max"
+                className="input input-bordered w-full max"
                 value={purchaseItem?.orderQuantity}
                 required
               />
-              <label class="label mt-4">
-                <span class="label-text">Available Quantity</span>
+              <label className="label mt-4">
+                <span className="label-text">Available Quantity</span>
               </label>
               <input
                 type="number"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 value={purchaseItem?.quantity}
                 required
               />
-              <label class="label mt-4">
-                <span class="label-text">Per Price</span>
+              <label className="label mt-4">
+                <span className="label-text">Per Price</span>
               </label>
               <input
                 type="number"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 value={purchaseItem?.perPrice}
                 required
               />
-              <label class="label mt-4">
-                <span class="label-text">User name</span>
+              <label className="label mt-4">
+                <span className="label-text">User name</span>
               </label>
               <input
                 type="text"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 value={user?.displayName}
                 required
               />
-              <label class="label mt-4">
-                <span class="label-text">User Email</span>
+              <label className="label mt-4">
+                <span className="label-text">User Email</span>
               </label>
               <input
                 type="text"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 value={user?.email}
                 required
               />
-              <label class="label mt-4">
-                <span class="label-text">Address</span>
+              <label className="label mt-4">
+                <span className="label-text">Address</span>
               </label>
               <input
                 type="text"
                 placeholder="Address"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 onBlur={handlerAddressBlur}
                 required
               />
-              <label class="label mt-4">
-                <span class="label-text">Phone Number</span>
+              <label className="label mt-4">
+                <span className="label-text">Phone Number</span>
               </label>
               <input
                 type="number"
                 placeholder="Phone Number"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 onBlur={handlerNumberBlur}
                 required
               />

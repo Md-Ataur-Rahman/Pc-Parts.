@@ -61,8 +61,8 @@ const ManageAllOrders = () => {
   };
   return (
     <>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
@@ -98,7 +98,7 @@ const ManageAllOrders = () => {
                         unpaid
                       </button>
                       <label
-                        for="manageallmodal"
+                        htmlFor="manageallmodal"
                         className="btn btn-xs btn-error mx-4"
                         onClick={() => orderCancel(order._id)}
                       >
