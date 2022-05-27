@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
-  const [buttonText, setButtonText] = useState("pending");
 
   useEffect(() => {
     fetch("https://shrouded-atoll-06153.herokuapp.com/allorders", {
@@ -15,8 +15,19 @@ const ManageAllOrders = () => {
       .then((data) => setOrders(data));
   }, [orders]);
 
-  const changeText = (text) => {
-    setButtonText("shipped");
+  const changeText = (id) => {
+    fetch(`https://shrouded-atoll-06153.herokuapp.com/status/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Shipped Done");
+        }
+      });
   };
   return (
     <div class="overflow-x-auto">
@@ -45,9 +56,9 @@ const ManageAllOrders = () => {
                 {order.paid && (
                   <button
                     className="btn btn-xs btn-success"
-                    onClick={() => changeText("shipped")}
+                    onClick={() => changeText(order.transactionId)}
                   >
-                    {buttonText}
+                    {order.status}
                   </button>
                 )}
                 {!order.paid && (
@@ -60,6 +71,7 @@ const ManageAllOrders = () => {
           ))}
         </tbody>
       </table>
+      <ToastContainer />
     </div>
   );
 };
