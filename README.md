@@ -1,7 +1,8 @@
-#Our Website name Pc Parts.
-Our Live website link [Pc Parts.](https://pc-parts-d853b.web.app/)
+# Our Website name Pc Parts.
 
-##our features and functionality
+## Our Live website link [Pc Parts.](https://pc-parts-d853b.web.app/)
+
+## our features and functionality
 
 - Firebase Authentication
 - React Query
