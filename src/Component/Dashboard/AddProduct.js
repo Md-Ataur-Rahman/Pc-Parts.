@@ -59,10 +59,10 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center md:w-9/12">
+    <div className="flex flex-col items-center justify-center md:w-full mx-auto">
       <h2 className="text-2xl">Add a Product</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-control w-full max-w-xs">
+        <div className="form-control w-full max-w-sm">
           <label className="label">
             <span className="label-text">Name</span>
           </label>

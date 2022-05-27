@@ -10,7 +10,7 @@ const MyPortfolio = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center mx-auto">
-        <div className="w-full max-w-sm">
+        <div className="max-w-sm md:w-full">
           <h1 className="text-xl md:text-5xl font-bold">Md. Ataur Rahman</h1>
           <h3 className="text-xl md:text-3xl font-bold">
             mdataurrahmanm505@gmail.com
@@ -33,8 +33,8 @@ const MyPortfolio = () => {
             <li>Routes</li>
             <li>Payment Gatway</li>
           </ul>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+          <h1 className="text-xl md:text-5xl font-bold py-4">My Project</h1>
+          <div className="grid grid-cols-1 gap-4 py-4">
             <div className="card w-full lg:max-w-lg bg-base-100 shadow-xl">
               <a href={projectOneLink} target="_blank" rel="noreferrer">
                 <figure>

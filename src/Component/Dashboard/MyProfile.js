@@ -61,7 +61,7 @@ const MyProfile = () => {
 
   return (
     <div className="hero h-screen">
-      <div className="hero-content">
+      <div className="sm:hero-content md:w-full">
         <form onSubmit={handleSubmit} className="card-body">
           <label className="label mt-4">
             <span className="label-text">Name {user?.displayName}</span>

@@ -4,7 +4,7 @@ const Blog = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 max-w-sm md:w-2/4 shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 max-w-sm md:w-full shadow-2xl bg-base-100">
           <div className="card-body">
             <p className="text-4xl text-center text-bold">
               How will you improve the performance of a React Application?
