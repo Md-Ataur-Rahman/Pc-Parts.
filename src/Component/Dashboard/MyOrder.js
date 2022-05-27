@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
+import CancelOrderModal from "./CancelOrderModal";
 
 const MyOrder = () => {
   const [user] = useAuthState(auth);
   const [myOrders, setMyOrders] = useState([]);
+  const [loading, isLoading] = useState(false);
+  const idProductRef = useRef();
 
   useEffect(() => {
     fetch(
@@ -20,22 +23,29 @@ const MyOrder = () => {
     )
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
-  }, [myOrders]);
+  }, [myOrders, loading, idProductRef]);
 
   const orderCancel = (id) => {
-    fetch(`https://shrouded-atoll-06153.herokuapp.com/orders/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          toast.success("Delete Order");
-        }
-      });
-    console.log(id);
+    idProductRef.current = id;
+    isLoading(true);
+  };
+  const areUSureDelete = (choose) => {
+    const id = idProductRef.current;
+    if (choose) {
+      fetch(`https://shrouded-atoll-06153.herokuapp.com/orders/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            toast.success("Delete Order");
+            isLoading(false);
+          }
+        });
+    }
   };
   console.log(myOrders);
   return (
@@ -71,7 +81,7 @@ const MyOrder = () => {
                         <button className="btn btn-xs btn-success">pay</button>
                       </Link>
                       <label
-                        for="my-modal-6"
+                        for="my-modal-3"
                         className="btn btn-xs btn-error mx-4"
                         onClick={() => orderCancel(order._id)}
                       >
@@ -99,6 +109,7 @@ const MyOrder = () => {
         </table>
         <ToastContainer />
       </div>
+      {loading && <CancelOrderModal onDialog={areUSureDelete} />}
     </>
   );
 };
