@@ -1,10 +1,16 @@
 import React from "react";
+import projectOne from "../../Images/projectOne.png";
+import projectTwo from "../../Images/projectTwo.png";
+import projectThree from "../../Images/projectThree.png";
 
 const MyPortfolio = () => {
+  const projectOneLink = "https://gentle-druid-446f93.netlify.app/";
+  const projectTwoLink = "https://astonishing-axolotl-ef5575.netlify.app/";
+  const projectThreeLink = "https://creative-ganache-ab9988.netlify.app/";
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content text-center mx-auto">
-        <div class="max-w-md">
+        <div class="w-full">
           <h1 class="text-5xl font-bold">Md. Ataur Rahman</h1>
           <h3 class="text-3xl font-bold">mdataurrahmanm505@gmail.com</h3>
           <h3 class="text-3xl font-bold py-4">
@@ -24,14 +30,27 @@ const MyPortfolio = () => {
             <li>Payment Gatway</li>
           </ul>
 
-          <div className="grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
             <div class="card w-full lg:max-w-lg bg-base-100 shadow-xl">
-              <figure>
-                <img
-                  src="https://api.lorem.space/image/shoes?w=400&h=225"
-                  alt="Shoes"
-                />
-              </figure>
+              <a href={projectOneLink} target="_blank" rel="noreferrer">
+                <figure>
+                  <img src={projectOne} alt="" />
+                </figure>
+              </a>
+            </div>
+            <div class="card w-full lg:max-w-lg bg-base-100 shadow-xl">
+              <a href={projectTwoLink} target="_blank" rel="noreferrer">
+                <figure>
+                  <img src={projectTwo} alt="" />
+                </figure>
+              </a>
+            </div>
+            <div class="card w-full lg:max-w-lg bg-base-100 shadow-xl">
+              <a href={projectThreeLink} target="_blank" rel="noreferrer">
+                <figure>
+                  <img src={projectThree} alt="" />
+                </figure>
+              </a>
             </div>
           </div>
         </div>

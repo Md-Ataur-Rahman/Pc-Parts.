@@ -17,7 +17,7 @@ const MyOrder = () => {
     })
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
-  }, [myOrders]);
+  }, []);
 
   const orderCancel = (id) => {
     fetch(`http://localhost:5000/orders/${id}`, {
