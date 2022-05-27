@@ -50,7 +50,7 @@ const AddReview = () => {
   return (
     <div class="hero flex h-screen justify-center items-center">
       <div class="hero-content">
-        <div class="card w-96 shadow-2xl bg-base-100">
+        <div class="card max-w-sm md:w-96 shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit} class="card-body">
             <label class="label mt-4">
               <span class="label-text">Name</span>

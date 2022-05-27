@@ -6,7 +6,7 @@ const ContactUs = () => {
       <div>
         <h2 className="font-bold text-center text-4xl py-4">Contact Us</h2>
         <div class="hero-content">
-          <div class="card w-96 shadow-2xl bg-base-100">
+          <div class="card mx-w-sm md:w-96 shadow-2xl bg-base-100">
             <div class="card-body">
               <div class="form-control">
                 <label class="label">

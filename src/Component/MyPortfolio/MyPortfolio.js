@@ -10,10 +10,12 @@ const MyPortfolio = () => {
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content text-center mx-auto">
-        <div class="w-full">
-          <h1 class="text-5xl font-bold">Md. Ataur Rahman</h1>
-          <h3 class="text-3xl font-bold">mdataurrahmanm505@gmail.com</h3>
-          <h3 class="text-3xl font-bold py-4">
+        <div class="w-full max-w-sm">
+          <h1 class="text-xl md:text-5xl font-bold">Md. Ataur Rahman</h1>
+          <h3 class="text-xl md:text-3xl font-bold">
+            mdataurrahmanm505@gmail.com
+          </h3>
+          <h3 class="text-xl md:text-3xl font-bold py-4">
             Education Background: SSC Passed in 2021. Curently study at class 11
           </h3>
           <ul>

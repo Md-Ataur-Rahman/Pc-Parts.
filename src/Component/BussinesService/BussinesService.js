@@ -8,6 +8,7 @@ const BussinesService = () => {
     <div class="hero min-h-screen bg-base-300">
       <div class="hero-content mx-auto flex-col lg:flex-row">
         <img
+          style={{ width: "260px", height: "350px" }}
           src={BussinesServiceImage}
           class="max-w-sm rounded-lg shadow-2xl flex-1"
           alt=""

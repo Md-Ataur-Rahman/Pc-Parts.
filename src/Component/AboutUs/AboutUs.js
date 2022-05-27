@@ -5,7 +5,12 @@ const AboutUs = () => {
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="w-full md:w-10/12 mx-auto hero-content flex-col lg:flex-row-reverse">
-        <img src={aboutus} class="max-w-sm rounded-lg shadow-2xl" alt="" />
+        <img
+          style={{ width: "260px", height: "400px" }}
+          src={aboutus}
+          class="max-w-sm rounded-lg shadow-2xl"
+          alt=""
+        />
         <div>
           <h1 class="text-5xl font-bold">About Us</h1>
           <p class="py-6">
