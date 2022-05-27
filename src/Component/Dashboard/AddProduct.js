@@ -37,7 +37,7 @@ const AddProduct = () => {
             perPrice: data.perPrice,
           };
           console.log(product);
-          fetch("http://localhost:5000/product", {
+          fetch("https://shrouded-atoll-06153.herokuapp.com/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

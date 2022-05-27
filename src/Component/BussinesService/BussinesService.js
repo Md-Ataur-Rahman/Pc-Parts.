@@ -6,17 +6,20 @@ import BussinesServiceImage from "../../Images/bussiness_service.jpg";
 const BussinesService = () => {
   return (
     <div class="hero min-h-screen bg-base-300">
-      <div class="hero-content w-5/6 mx-auto flex-col lg:flex-row">
+      <div class="hero-content mx-auto flex-col lg:flex-row">
         <img
           src={BussinesServiceImage}
           class="max-w-sm rounded-lg shadow-2xl flex-1"
+          alt=""
         />
         <div className="flex-2 lg:mx-16">
           <h1 class="text-5xl font-bold">Bussiness Services</h1>
           <p class="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Business services are a recognisable subset of economic services,
+            and share their characteristics. The essential difference is that
+            businesses are concerned about the building of service systems in
+            order to deliver value to their customers and to act in the roles of
+            service provider and service consumer.
           </p>
           <ul className="flex flex-col md:flex-row items-center py-4">
             <li className="flex flex-col justify-center items-center text-2xl">

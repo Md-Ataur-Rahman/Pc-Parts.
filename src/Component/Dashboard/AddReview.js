@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { ToastContainer, toast } from "react-toastify";
 
 const AddReview = () => {
   const [user] = useAuthState(auth);
@@ -12,7 +13,15 @@ const AddReview = () => {
   };
 
   const handlerRatingChange = (e) => {
-    setRating(e.target.value);
+    const ratingNumber = Number(e.target.value);
+    console.log(ratingNumber);
+    if (1 > ratingNumber) {
+      toast.error("Rating bigger than 1");
+    } else if (5 < ratingNumber) {
+      toast.error("Rating lower than 5");
+    } else {
+      setRating(e.target.value);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -23,7 +32,7 @@ const AddReview = () => {
       rating,
     };
 
-    fetch("http://localhost:5000/addreview", {
+    fetch("https://shrouded-atoll-06153.herokuapp.com/addreview", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +41,9 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Review Posted");
+        }
       });
   };
 
@@ -69,6 +80,8 @@ const AddReview = () => {
               type="number"
               class="input input-bordered w-full max"
               placeholder="min 1 & max 5"
+              min="1"
+              max="5"
               onChange={handlerRatingChange}
             />
             <input
@@ -79,6 +92,7 @@ const AddReview = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

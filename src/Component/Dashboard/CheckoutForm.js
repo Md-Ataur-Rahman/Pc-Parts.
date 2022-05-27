@@ -13,7 +13,7 @@ const CheckoutForm = ({ paymentOrder }) => {
   const [processing, setProcessing] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://shrouded-atoll-06153.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -85,7 +85,7 @@ const CheckoutForm = ({ paymentOrder }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:5000/purchase/${_id}`, {
+      fetch(`https://shrouded-atoll-06153.herokuapp.com/purchase/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

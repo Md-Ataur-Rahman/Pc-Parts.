@@ -13,7 +13,7 @@ const Payment = () => {
   const { paymentId } = useParams();
   console.log(paymentId);
 
-  const url = `http://localhost:5000/paymentorder/${paymentId}`;
+  const url = `https://shrouded-atoll-06153.herokuapp.com/paymentorder/${paymentId}`;
   const { data: paymentOrder, isLoading } = useQuery(
     ["paymentorder", paymentId],
     () => fetch(url).then((res) => res.json())
@@ -21,7 +21,7 @@ const Payment = () => {
   if (isLoading) {
     return <p>Loading</p>;
   }
-  
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div class="card w-10/12 bg-base-100 shadow-xl my-12">

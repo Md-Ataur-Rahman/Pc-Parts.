@@ -17,7 +17,7 @@ const PurchaseItem = () => {
   console.log(stateOrderQuantity);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`, {
+    fetch(`https://shrouded-atoll-06153.herokuapp.com/purchase/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -81,7 +81,7 @@ const PurchaseItem = () => {
       number,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://shrouded-atoll-06153.herokuapp.com/order", {
       method: "POST",
       body: JSON.stringify(orderInfo),
       headers: {

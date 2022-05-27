@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
   const [buttonText, setButtonText] = useState("pending");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allorders", {
+    fetch("https://shrouded-atoll-06153.herokuapp.com/allorders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

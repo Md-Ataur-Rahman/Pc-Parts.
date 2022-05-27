@@ -9,18 +9,21 @@ const MyOrder = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myorders?email=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://shrouded-atoll-06153.herokuapp.com/myorders?email=${user.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [myOrders]);
 
   const orderCancel = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://shrouded-atoll-06153.herokuapp.com/orders/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",

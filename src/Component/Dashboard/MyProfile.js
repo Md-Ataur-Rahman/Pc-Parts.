@@ -26,7 +26,7 @@ const MyProfile = () => {
   const handlerLinkdinLinkChange = (e) => {
     setProfileLink(e.target.value);
   };
-  const url = `http://localhost:5000/myprofile/${user?.email}`;
+  const url = `https://shrouded-atoll-06153.herokuapp.com/myprofile/${user?.email}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();

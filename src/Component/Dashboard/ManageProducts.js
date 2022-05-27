@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const handlerDelete = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://shrouded-atoll-06153.herokuapp.com/products/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -14,7 +14,7 @@ const ManageProducts = () => {
     console.log(id);
   };
   useEffect(() => {
-    fetch("http://localhost:5000/tools")
+    fetch("https://shrouded-atoll-06153.herokuapp.com/tools")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);
