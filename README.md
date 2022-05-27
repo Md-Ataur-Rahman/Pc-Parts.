@@ -1,8 +1,19 @@
-# Getting Started with Create React App
+#Our Website name Pc Parts.
+Our Live website link [Pc Parts.](https://pc-parts-d853b.web.app/)
+
+##our features and functionality
+
+- Firebase Authentication
+- React Query
+- Strip or paymet gatway
+- Tailwind css library
+- Toastify
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
